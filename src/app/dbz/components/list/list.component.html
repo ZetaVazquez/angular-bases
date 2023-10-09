@@ -1,0 +1,31 @@
+<h4>Listado de Characters</h4>
+<ul class="list-group">
+  <!--i es el idex y se está declarando en el bucle for-->
+  <!--let xxx = first/last. El server detecta con esta declaracion cal es el 1º y cual el último-->
+  <li *ngFor="let character of characterList;
+    let i =index;
+    let isFirst = first;
+    let isLast = last;
+    let isEven= even" class="list-group-item d-flex justify-content-between align-items-center" [ngClass]="{
+      'list-group-item-success':isFirst,
+      'list-group-item-dark':isLast
+    }"> <!--List groups. ngClass Boostrap-->
+      <div>
+        <span class="text-primary">{{i+1}}.</span>
+
+        <span>{{character.name}}</span>
+        -
+        <strong>Power: </strong>
+
+        <span>{{character.power}} </span>
+
+        <span>Es el primero: {{isFirst}}  </span>
+        -
+        <span>Es el ultimo: {{isLast}}  </span>
+      </div>
+
+
+    <button (click)="onDeleteCharacter(character.id)" class="btn btn-danger"> x</button>
+  </li>
+
+</ul>
